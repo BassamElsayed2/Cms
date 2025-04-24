@@ -190,62 +190,64 @@ const IntegrationArea = ({ style_integraton }) => {
             style={{ backgroundImage: `url(${bg_img})` }}
           >
             <Slider {...setting_one} className="tp-integration-slider-active">
-              {productData?.slideOne.slice(0, 5).map((item, i) => (
-                <Link
-                  key={i}
-                  href={`/${locale}/products/${item.slug.current}`}
-                  className="tp-integration-slider-main slick-slide"
-                >
-                  <div className="tp-integration-slider-item">
-                    <div className="integration-card">
-                      <div className="integration-icon">
-                        <img
-                          src={
-                            item.smallImage?.asset?._ref
-                              ? urlFor(item.smallImage).url()
-                              : ""
-                          }
-                          alt={item.text?.[locale]}
-                        />
-                      </div>
-                      <div className="integration-content">
-                        <h4>{item.text?.[locale]}</h4>
-                        <p>{item.smallDescription?.[locale]}</p>
+              {productData?.slideOne &&
+                productData?.slideOne.slice(0, 5).map((item, i) => (
+                  <Link
+                    key={i}
+                    href={`/${locale}/products/${item.slug.current}`}
+                    className="tp-integration-slider-main slick-slide"
+                  >
+                    <div className="tp-integration-slider-item">
+                      <div className="integration-card">
+                        <div className="integration-icon">
+                          <img
+                            src={
+                              item.smallImage?.asset?._ref
+                                ? urlFor(item.smallImage).url()
+                                : ""
+                            }
+                            alt={item.text?.[locale]}
+                          />
+                        </div>
+                        <div className="integration-content">
+                          <h4>{item.text?.[locale]}</h4>
+                          <p>{item.smallDescription?.[locale]}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
             </Slider>
             <Slider
               {...setting_two}
               className="tp-integration-slider-active-2 carousel-rtl"
               dir="rtl"
             >
-              {productData?.slideTwo.slice(0, 5).map((item, i) => (
-                <Link
-                  key={i}
-                  href={`/${locale}/products/${item.slug.current}`}
-                  className="tp-integration-slider-main slick-slide"
-                >
-                  <div className="tp-integration-slider-item">
-                    <div className="integration-card">
-                      <div className="integration-icon">
-                        {item?.smallImage.asset?._ref && (
-                          <img
-                            src={urlFor(item.smallImage).url()}
-                            alt={item.text?.[locale]}
-                          />
-                        )}
-                      </div>
-                      <div className="integration-content">
-                        <h4>{item.text?.[locale]}</h4>
-                        <p>{item.smallDescription?.[locale]}</p>
+              {productData?.slideTwo &&
+                productData?.slideTwo.slice(0, 5).map((item, i) => (
+                  <Link
+                    key={i}
+                    href={`/${locale}/products/${item.slug.current}`}
+                    className="tp-integration-slider-main slick-slide"
+                  >
+                    <div className="tp-integration-slider-item">
+                      <div className="integration-card">
+                        <div className="integration-icon">
+                          {item?.smallImage.asset?._ref && (
+                            <img
+                              src={urlFor(item.smallImage).url()}
+                              alt={item.text?.[locale]}
+                            />
+                          )}
+                        </div>
+                        <div className="integration-content">
+                          <h4>{item.text?.[locale]}</h4>
+                          <p>{item.smallDescription?.[locale]}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
             </Slider>
           </div>
         </div>

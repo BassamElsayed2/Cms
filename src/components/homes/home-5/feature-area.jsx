@@ -98,82 +98,84 @@ const FeatureArea = ({ style_integraton }) => {
             </div>
           </div>
           <div className="row gx-0 tp-feature-five-wrapper-main">
-            {productData?.slideOne.slice(0, 5).map((item, i) => (
-              <div key={i} className="col-xl-3 col-lg-6 col-md-6">
-                <div className="tp-feature-five-wrapper">
-                  <div
-                    className={`tp-feature-five-item tp-feature-five-item-1 text-center z-index`}
-                  >
-                    <div className="tp-feature-five-icon p-relative">
-                      <img
-                        src={
-                          item?.smallImage?.asset?._ref
-                            ? urlFor(item?.smallImage).url()
-                            : ""
-                        }
-                        alt="theme-pure"
-                      />
-                      <div
-                        className={`tp-feature-five-shape-color tp-feature-five-shape-color-1`}
-                      ></div>
-                    </div>
-                    <div className="tp-feature-five-content">
-                      <h4 className="tp-feature-five-title-sm">
-                        {item.text?.[locale]}
-                      </h4>
-                      <p>{item.smallDescription?.[locale]}</p>
-                    </div>
-                    <div className="tp-feature-five-btn">
-                      <Link
-                        className="tp-btn-purple"
-                        href={`/${locale}/products/${item.slug.current}`}
-                      >
-                        Learn More
-                      </Link>
+            {productData?.slideOne &&
+              productData?.slideOne.slice(0, 5).map((item, i) => (
+                <div key={i} className="col-xl-3 col-lg-6 col-md-6">
+                  <div className="tp-feature-five-wrapper">
+                    <div
+                      className={`tp-feature-five-item tp-feature-five-item-1 text-center z-index`}
+                    >
+                      <div className="tp-feature-five-icon p-relative">
+                        <img
+                          src={
+                            item?.smallImage?.asset?._ref
+                              ? urlFor(item?.smallImage).url()
+                              : ""
+                          }
+                          alt="theme-pure"
+                        />
+                        <div
+                          className={`tp-feature-five-shape-color tp-feature-five-shape-color-1`}
+                        ></div>
+                      </div>
+                      <div className="tp-feature-five-content">
+                        <h4 className="tp-feature-five-title-sm">
+                          {item.text?.[locale]}
+                        </h4>
+                        <p>{item.smallDescription?.[locale]}</p>
+                      </div>
+                      <div className="tp-feature-five-btn">
+                        <Link
+                          className="tp-btn-purple"
+                          href={`/${locale}/products/${item.slug.current}`}
+                        >
+                          Learn More
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           <div className="row gx-0 tp-feature-five-wrapper-main">
-            {productData?.slideTwo.slice(0, 4).map((item, i) => (
-              <div key={i} className="col-xl-3 col-lg-6 col-md-6">
-                <div className="tp-feature-five-wrapper">
-                  <div
-                    className={`tp-feature-five-item tp-feature-five-item-1 text-center z-index`}
-                  >
-                    <div className="tp-feature-five-icon p-relative">
-                      <img
-                        src={
-                          item?.smallImage?.asset?._ref
-                            ? urlFor(item?.smallImage).url()
-                            : ""
-                        }
-                        alt="theme-pure"
-                      />
-                      <div
-                        className={`tp-feature-five-shape-color tp-feature-five-shape-color-2`}
-                      ></div>
-                    </div>
-                    <div className="tp-feature-five-content">
-                      <h4 className="tp-feature-five-title-sm">
-                        {item.text?.[locale]}
-                      </h4>
-                      <p>{item.smallDescription?.[locale]}</p>
-                    </div>
-                    <div className="tp-feature-five-btn">
-                      <Link
-                        className="tp-btn-purple"
-                        href={`/${locale}/service`}
-                      >
-                        Learn More
-                      </Link>
+            {productData?.slideTwo &&
+              productData?.slideTwo.slice(0, 4).map((item, i) => (
+                <div key={i} className="col-xl-3 col-lg-6 col-md-6">
+                  <div className="tp-feature-five-wrapper">
+                    <div
+                      className={`tp-feature-five-item tp-feature-five-item-1 text-center z-index`}
+                    >
+                      <div className="tp-feature-five-icon p-relative">
+                        <img
+                          src={
+                            item?.smallImage?.asset?._ref
+                              ? urlFor(item?.smallImage).url()
+                              : ""
+                          }
+                          alt="theme-pure"
+                        />
+                        <div
+                          className={`tp-feature-five-shape-color tp-feature-five-shape-color-2`}
+                        ></div>
+                      </div>
+                      <div className="tp-feature-five-content">
+                        <h4 className="tp-feature-five-title-sm">
+                          {item.text?.[locale]}
+                        </h4>
+                        <p>{item.smallDescription?.[locale]}</p>
+                      </div>
+                      <div className="tp-feature-five-btn">
+                        <Link
+                          className="tp-btn-purple"
+                          href={`/${locale}/service`}
+                        >
+                          Learn More
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
           {/* <div className="row">
             <div className="col-12">

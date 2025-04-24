@@ -77,13 +77,15 @@ export default {
                   name: "en",
                   title: "English",
                   type: "text",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required().min(1).max(200).error("حد اقصي 200 حرف"),
                 },
                 {
                   name: "ar",
                   title: "Arabic",
                   type: "text",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required().min(1).max(200).error("حد اقصي 200 حرف"),
                 },
               ],
             },

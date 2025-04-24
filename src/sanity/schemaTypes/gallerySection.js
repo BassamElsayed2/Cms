@@ -20,6 +20,15 @@ export default {
       ],
     },
     {
+      name: "desc",
+      title: "وصف",
+      type: "object",
+      fields: [
+        { name: "en", title: "English", type: "string" },
+        { name: "ar", title: "Arabic", type: "string" },
+      ],
+    },
+    {
       name: "button",
       title: "Button",
       type: "object",
@@ -29,8 +38,20 @@ export default {
           title: "Text",
           type: "object",
           fields: [
-            { name: "en", title: "English", type: "string" },
-            { name: "ar", title: "Arabic", type: "string" },
+            {
+              name: "en",
+              title: "English",
+              type: "string",
+              validation: (Rule) =>
+                Rule.required().min(1).max(50).error("يجب الا يزيد عن 50 حرف"),
+            },
+            {
+              name: "ar",
+              title: "Arabic",
+              type: "string",
+              validation: (Rule) =>
+                Rule.required().min(1).max(50).error("يجب الا يزيد عن 50 حرف"),
+            },
           ],
         },
         { name: "url", title: "URL", type: "string" },
@@ -44,32 +65,99 @@ export default {
         {
           type: "object",
           fields: [
-            { name: "image", title: "Image", type: "image" },
+            {
+              name: "image",
+              title: "صورة",
+              type: "image",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "otherImages",
+              title: " صور أخرى",
+              type: "array",
+              of: [
+                {
+                  type: "image",
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
+            },
             {
               name: "text",
-              title: "Text",
+              title: "العنوان",
               type: "object",
               fields: [
-                { name: "en", title: "English", type: "string" },
-                { name: "ar", title: "Arabic", type: "string" },
+                {
+                  name: "en",
+                  title: "العنوان بالانجليزي",
+                  type: "string",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(50)
+                      .error("يجب الا يزيد عن 50 حرف"),
+                },
+                {
+                  name: "ar",
+                  title: "العنوان بالعربي",
+                  type: "string",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(50)
+                      .error("يجب الا يزيد عن 50 حرف"),
+                },
               ],
             },
             {
               name: "subTitle",
-              title: "SubTitle",
+              title: "العنوان الفرعي",
               type: "object",
               fields: [
-                { name: "en", title: "English", type: "string" },
-                { name: "ar", title: "Arabic", type: "string" },
+                {
+                  name: "en",
+                  title: "الانجليزي",
+                  type: "string",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(50)
+                      .error("يجب الا يزيد عن 50 حرف"),
+                },
+                {
+                  name: "ar",
+                  title: "العربي",
+                  type: "string",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(50)
+                      .error("يجب الا يزيد عن 50 حرف"),
+                },
               ],
             },
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
-                { name: "en", title: "English", type: "text" },
-                { name: "ar", title: "Arabic", type: "text" },
+                { name: "en", title: "الوصف بالانجليزية", type: "string" },
+                { name: "ar", title: "الوصف بالعربي", type: "string" },
+              ],
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
               ],
             },
             {

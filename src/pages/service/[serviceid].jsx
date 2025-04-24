@@ -9,6 +9,7 @@ import { client } from "@/src/sanity/lib/client";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { marked } from "marked";
 
 const ServiceDetails = () => {
   const router = useRouter();
@@ -39,6 +40,8 @@ const ServiceDetails = () => {
     fetchData();
   }, [serviceid]);
 
+  console.log("serviceDetail", serviceDetail);
+
   if (loading) return <LoadingPage />;
   if (
     !serviceDetail ||
@@ -68,6 +71,16 @@ const ServiceDetails = () => {
               service={serviceDetail}
               description={serviceDetail?.featureCards[0]?.description}
             />
+            {serviceDetail?.featureCards[0].details?.[locale] && (
+              <article
+                className="container pr-50"
+                dangerouslySetInnerHTML={{
+                  __html: marked(
+                    serviceDetail?.featureCards[0].details[locale]
+                  ), // حول markdown إلى HTML
+                }}
+              />
+            )}
             {/* <TestimonialArea /> */}
           </main>
           <FooterFive style_contact={true} style_team={true} bg_style={false} />

@@ -67,25 +67,11 @@ const ServiceDetailsArea = ({ description }) => {
   const { locale } = useRouter();
   return (
     <>
-      <div className="sv-details-area pt-100 pb-100">
+      <div className="sv-details-area pt-100 pb-20">
         <div className="container">
           <div className="row">
-            <div className="col-xl-4 col-lg-4">
+            {/* <div className="col-xl-4 col-lg-4">
               <div className="sv-details-widget">
-                {/* <div className="sv-details-category mb-30">
-                           <div className="sv-details-category-title">
-                              <h4 className="sv-details-title-sm">{category_title}</h4>
-                           </div>
-                           <div className="sv-details-category-list">
-                              <ul>
-                                {categorys.map((item, i)  => 
-                                    <li key={i} className={item.cls}>
-                                        <Link href="#"><span>{item.category}</span><i className="fal fa-angle-right"></i></Link>
-                                    </li>
-                                )} 
-                              </ul>
-                           </div>
-                        </div> */}
                 <div
                   className="tp-service__dashboard mb-30"
                   style={{ backgroundImage: `url(${bg_img})` }}
@@ -122,9 +108,9 @@ const ServiceDetailsArea = ({ description }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-xl-8 col-lg-8">
+            <div className="col-xl-12 col-lg-12">
               <div className="sv-details-wrapper">
                 <div className="sv-details-thumb mb-45">
                   <Image className="w-100" src={service_img} alt="theme-pure" />
@@ -136,35 +122,6 @@ const ServiceDetailsArea = ({ description }) => {
                       : "نظرة عامة على الخدمة"}
                   </h4>
                   <p>{description?.[locale]}</p>
-                </div>
-                {/* <div className="sv-details-text mb-35">
-                  <h4 className="sv-details-text-title pb-10">
-                    Going Beyond the Usual
-                  </h4>
-                  <ul>
-                    {overview_list.map((item, i) => (
-                      <li key={i}>
-                        {" "}
-                        <i className="fal fa-check"></i> <p> {item} </p>{" "}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="sv-details-text-2">
-                  <h4 className="sv-details-text-title">{challange_titel}</h4>
-                  <p>{challange_des}</p>
-                </div> */}
-                <div className="tp-faq-area pt-50">
-                  <div className="container p-0">
-                    {/* <div className="row g-0">
-                      <div className="col-xl-12">
-                        <h4 className="sv-details-title">
-                          Any Questions find here.
-                        </h4>
-                        <AnswerQuestion style={true} />
-                      </div>
-                    </div> */}
-                  </div>
                 </div>
               </div>
             </div>

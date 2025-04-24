@@ -7,10 +7,12 @@ import ProjectDetailsArea from "@/src/components/project-details/project-details
 import ThumbArea from "@/src/components/project-details/thumb-area";
 import FooterFive from "@/src/layout/footers/footer-5";
 import HeaderSix from "@/src/layout/headers/header-6";
+import ImagePopup from "@/src/modals/ImagePopup";
 import { client } from "@/src/sanity/lib/client";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { marked } from "marked";
 
 function GalleryDetails() {
   const router = useRouter();
@@ -19,6 +21,11 @@ function GalleryDetails() {
 
   const [galleryDetails, setGalleryDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // Popup states
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     if (!id) return;
@@ -64,15 +71,49 @@ function GalleryDetails() {
               sub_title={galleryDetails?.image?.subTitle?.[locale]}
             />
             <ThumbArea img={galleryDetails?.image?.image} />
-            <ProjectDetailsArea
-              desc={galleryDetails?.image?.description?.[locale]}
-            />
-            {/* <ProjectArea /> */}
+
+            <div className="galleryWrapper">
+              <div className="newsImages grid grid-cols-3 gap-4">
+                {galleryDetails?.image?.otherImages?.map((img, i) => (
+                  <img
+                    src={img?.asset?._ref ? urlFor(img).url() : ""}
+                    alt="theme-pure"
+                    key={i}
+                    onClick={() => handleImageClick(i)} // فتح الـ popup عند النقر
+                    className="cursor-pointer rounded-lg shadow-md object-contain w-full h-48" // تعديل الصورة لتتناسب مع الأبعاد
+                  />
+                ))}
+              </div>
+
+              <div>
+                <ProjectDetailsArea
+                  desc={galleryDetails?.image?.description?.[locale]}
+                />
+                {galleryDetails?.image?.details?.[locale] && (
+                  <article
+                    className="container pr-50 pb-100"
+                    dangerouslySetInnerHTML={{
+                      __html: marked(galleryDetails?.image?.details[locale]), // حول markdown إلى HTML
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+
             <TestimonialArea />
           </main>
           <FooterFive style_contact={true} style_team={true} bg_style={false} />
         </div>
       </div>
+      {/* Show the ImagePopup if the state is open */}
+      {isOpen && (
+        <ImagePopup
+          images={images}
+          setIsOpen={setIsOpen}
+          photoIndex={photoIndex}
+          setPhotoIndex={setPhotoIndex}
+        />
+      )}
     </>
   );
 }

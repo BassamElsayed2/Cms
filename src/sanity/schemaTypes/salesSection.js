@@ -39,13 +39,15 @@ export default {
           name: "en",
           title: "English Description",
           type: "text",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required().min(1).max(500).error("يجب الا يزيد عن 500 حرف"),
         },
         {
           name: "ar",
           title: "Arabic Description",
           type: "text",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required().min(1).max(500).error("يجب الا يزيد عن 500 حرف"),
         },
       ],
     },

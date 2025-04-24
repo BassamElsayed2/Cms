@@ -241,15 +241,18 @@ const FooterThree = () => {
                       <div className="tp-footer__contact-info">
                         <p>{footerData?.description?.[locale]}</p>
                         <ul>
-                          <li>
+                          <li className="phones">
                             <span>
                               <PhoneTwo />
                             </span>
                             <Link
-                              className="first-child"
+                              className="first-child "
                               href={`tel:${footerData?.phone}`}
                             >
-                              {footerData?.phone}
+                              {footerData?.phones &&
+                                footerData?.phones.map((item, i) => (
+                                  <p key={i}>{item}</p>
+                                ))}
                             </Link>
                           </li>
                           <li>

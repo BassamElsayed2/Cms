@@ -49,7 +49,7 @@ const ServiceArea = () => {
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
-              <div className="tp-service-section-wrapper mb-60 d-flex justify-content-between align-items-end">
+              <div className="tp-service-section-wrapper mb-60 d-flex justify-content-between align-items-end ">
                 <h3
                   className="tp-section-title-3 wow tpfadeLeft"
                   data-wow-duration=".9s"
@@ -94,20 +94,12 @@ const ServiceArea = () => {
                     alt="theme-pure"
                   />
                 </div>
-                <div className="tp-service-3-content">
+                <div className="tp-service-3-content ">
                   <span>{serviceData?.mainCard.title?.[locale]}</span>
                   <h4 className="tp-service-3-title-sm">
                     {serviceData?.mainCard.description?.[locale]}
                   </h4>
                 </div>
-                {/* <div className="tp-service-3-btn">
-                  <Link
-                    className="tp-btn-white-solid"
-                    href={serviceData?.button.url ? `/${locale}/service` : " #"}
-                  >
-                    {serviceData?.mainCard.button.text?.[locale]}
-                  </Link>
-                </div> */}
                 <div className="tp-service-3-shape">
                   <Image src={service_img_2} alt="theme-pure" />
                 </div>
@@ -131,7 +123,7 @@ const ServiceArea = () => {
                     />
                   </div>
 
-                  <div className="tp-service-sm-content">
+                  <div className="tp-service-sm-content clamb-2">
                     <span>
                       {locale === "en" ? item.title.en : item.title.ar}
                     </span>

@@ -12,13 +12,21 @@ export default {
           name: "en",
           title: "English",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required()
+              .min(1)
+              .max(50)
+              .error("يجب أن يكون العنوان بين 50 و 1 حرفًا"),
         },
         {
           name: "ar",
           title: "Arabic",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required()
+              .min(1)
+              .max(50)
+              .error("يجب أن يكون العنوان بين 50 و 1 حرفًا"),
         },
       ],
     },
@@ -36,13 +44,21 @@ export default {
               name: "en",
               title: "English",
               type: "string",
-              validation: (Rule) => Rule.required(),
+              validation: (Rule) =>
+                Rule.required()
+                  .min(1)
+                  .max(30)
+                  .error("يجب أن يكون العنوان بين 30 و 1 حرفًا"),
             },
             {
               name: "ar",
               title: "Arabic",
               type: "string",
-              validation: (Rule) => Rule.required(),
+              validation: (Rule) =>
+                Rule.required()
+                  .min(1)
+                  .max(30)
+                  .error("يجب أن يكون العنوان بين 30 و 1 حرفًا"),
             },
           ],
         },
@@ -69,13 +85,21 @@ export default {
               name: "en",
               title: "English",
               type: "string",
-              validation: (Rule) => Rule.required(),
+              validation: (Rule) =>
+                Rule.required()
+                  .min(1)
+                  .max(50)
+                  .error("يجب أن يكون العنوان بين 50 و 1 حرفًا"),
             },
             {
               name: "ar",
               title: "Arabic",
               type: "string",
-              validation: (Rule) => Rule.required(),
+              validation: (Rule) =>
+                Rule.required()
+                  .min(1)
+                  .max(50)
+                  .error("يجب أن يكون العنوان بين 50 و 1 حرفًا"),
             },
           ],
         },
@@ -105,20 +129,28 @@ export default {
         },
         {
           name: "description",
-          title: "Description",
+          title: "الوصف",
           type: "object",
           fields: [
             {
               name: "en",
               title: "English",
-              type: "text",
-              validation: (Rule) => Rule.required(),
+              type: "string",
+              validation: (Rule) =>
+                Rule.required()
+                  .min(1)
+                  .max(100)
+                  .error("يجب أن يكون العنوان بين 100 و 1 حرفًا"),
             },
             {
               name: "ar",
               title: "Arabic",
-              type: "text",
-              validation: (Rule) => Rule.required(),
+              type: "string",
+              validation: (Rule) =>
+                Rule.required()
+                  .min(1)
+                  .max(100)
+                  .error("يجب أن يكون العنوان بين 100 و 1 حرفًا"),
             },
           ],
         },
@@ -174,13 +206,21 @@ export default {
                   name: "en",
                   title: "English",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(30)
+                      .error("يجب أن يكون العنوان بين 30 و 1 حرفًا"),
                 },
                 {
                   name: "ar",
                   title: "Arabic",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(30)
+                      .error("يجب أن يكون العنوان بين 30 و 1 حرفًا"),
                 },
               ],
             },
@@ -228,21 +268,38 @@ export default {
             },
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
                 {
                   name: "en",
                   title: "English",
-                  type: "text",
-                  validation: (Rule) => Rule.required(),
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 1 حرفًا"),
                 },
                 {
                   name: "ar",
                   title: "Arabic",
-                  type: "text",
-                  validation: (Rule) => Rule.required(),
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 1 حرفًا"),
                 },
+              ],
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
               ],
             },
           ],

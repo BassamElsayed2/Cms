@@ -14,8 +14,20 @@ export default {
       title: "Title",
       type: "object",
       fields: [
-        { name: "en", title: "English", type: "string" },
-        { name: "ar", title: "Arabic", type: "string" },
+        {
+          name: "en",
+          title: "English",
+          type: "string",
+          validation: (Rule) =>
+            Rule.required().min(1).max(50).error("يجب الا يزيد عن 50 حرف"),
+        },
+        {
+          name: "ar",
+          title: "Arabic",
+          type: "string",
+          validation: (Rule) =>
+            Rule.required().min(1).max(50).error("يجب الا يزيد عن 50 حرف"),
+        },
       ],
     },
     {
@@ -28,9 +40,10 @@ export default {
       ],
     },
     {
-      name: "phone",
-      title: "Phone Number",
-      type: "string",
+      name: "phones",
+      title: "Phone Numbers",
+      type: "array",
+      of: [{ type: "string" }],
     },
     {
       name: "email",

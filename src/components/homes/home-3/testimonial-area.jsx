@@ -195,7 +195,7 @@ const TestimonialArea = () => {
                       {testimonialData?.testimonials.map((item, i) => (
                         <div key={i} className="tp-testimonial-wrapper">
                           <div className="tp-testimonial-3-item d-flex justify-content-between align-items-center">
-                            <div className="tp-testimonial-3-content-box">
+                            <div className="tp-testimonial-3-content-box clamb-2">
                               <div className="tp-testimonial-3-review">
                                 <span>
                                   <i className="fas fa-star"></i>

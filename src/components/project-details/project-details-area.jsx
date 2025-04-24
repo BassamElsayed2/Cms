@@ -82,7 +82,7 @@ const ProjectDetailsArea = ({ desc }) => {
 
   return (
     <>
-      <div className="pd-details-area pt-100 pb-100">
+      <div className="pd-details-area pt-100 pb-20">
         <div className="container">
           <div className="row g-0">
             <div className="col-xl-10 col-lg-10 ">

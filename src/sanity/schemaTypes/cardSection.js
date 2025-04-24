@@ -19,13 +19,15 @@ export default {
           name: "en",
           title: "English",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required().min(1).max(100).error("يجب الا يزيد عن 100 حرف"),
         },
         {
           name: "ar",
           title: "Arabic",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required().min(1).max(100).error("يجب الا يزيد عن 100 حرف"),
         },
       ],
     },
@@ -38,13 +40,15 @@ export default {
           name: "en",
           title: "English",
           type: "text",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required().min(1).max(500).error("يجب الا يزيد عن 500 حرف"),
         },
         {
           name: "ar",
           title: "Arabic",
           type: "text",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required().min(1).max(500).error("يجب الا يزيد عن 500 حرف"),
         },
       ],
     },

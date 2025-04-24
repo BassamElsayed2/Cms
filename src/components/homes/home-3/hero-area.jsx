@@ -129,7 +129,12 @@ const HeroArea = () => {
                     alt="Hero Image"
                     width={1200}
                     height={630}
-                    priority
+                    className="img-fluid w-100"
+                    style={{
+                      objectFit: "cover",
+                      maxWidth: "100%",
+                      maxHeight: "630px",
+                    }}
                   />
                 </div>
                 <div className="tp-hero-3-shape-5 d-none d-lg-block wow frist-img animated">
